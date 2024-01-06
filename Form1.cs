@@ -60,14 +60,15 @@ namespace HexenLauncher
         {
             var selectedGame = gameComboBox.SelectedItem.ToString();
             var arguments = "";
+            if (selectedGame == "strife.strife")
+            {
+                arguments += " -file StrifeCoop.pk3";
+                arguments += " +map map02";
+            }
+            arguments += " -noautoload";
+            arguments += " -iwad " + GetIWADName();
             if (hostRadioButton.Checked)
             {
-                if (selectedGame == "strife.strife")
-                {
-                    arguments += " -file StrifeCoop.pk3";
-                    arguments += " +map map02";
-                }
-                arguments += " -iwad " + GetIWADName();
                 arguments += " -host ";
                 arguments += playersComboBox.SelectedItem;
                 arguments += " -skill " + skillComboBox.SelectedItem;
