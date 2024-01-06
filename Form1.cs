@@ -64,11 +64,11 @@ namespace HexenLauncher
             {
                 if (selectedGame == "strife.strife")
                 {
-                    arguments += "StrifeCoop.pk3 ";
-                    arguments += "+map map02";
+                    arguments += " -file StrifeCoop.pk3";
+                    arguments += " +map map02";
                 }
-                arguments += "-iwad " + GetIWADName();
-                arguments += "-host ";
+                arguments += " -iwad " + GetIWADName();
+                arguments += " -host ";
                 arguments += playersComboBox.SelectedItem;
                 arguments += " -skill " + skillComboBox.SelectedItem;
                 arguments += " -netmode " + netModeComboBox.SelectedItem;
