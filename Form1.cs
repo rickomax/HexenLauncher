@@ -230,7 +230,6 @@ namespace HexenLauncher
             }
 
             loadGameComboBox.Items.Clear();
-
             string savedGamesFolder;
             if (selectedGame == "rekkr")
             {
@@ -241,13 +240,14 @@ namespace HexenLauncher
 
                 savedGamesFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE") ?? throw new InvalidOperationException(), "saved games", "GZDoom", selectedGame);
             }
-
-            foreach (var file in Directory.GetFiles(savedGamesFolder))
+            if (Directory.Exists(savedGamesFolder))
             {
-                loadGameComboBox.Items.Add(Path.GetFileName(file));
+                foreach (var file in Directory.GetFiles(savedGamesFolder))
+                {
+                    loadGameComboBox.Items.Add(Path.GetFileName(file));
+                }
+                loadGameComboBox.SelectedIndex = 0;
             }
-
-            loadGameComboBox.SelectedIndex = 0;
         }
     }
 }
