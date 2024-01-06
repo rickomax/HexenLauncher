@@ -64,7 +64,7 @@ namespace HexenLauncher
             {
                 if (selectedGame == "strife.strife")
                 {
-                    arguments += "StrifeCoop.pk3";
+                    arguments += "StrifeCoop.pk3 ";
                     arguments += "+map map02";
                 }
                 arguments += "-iwad " + GetIWADName();
